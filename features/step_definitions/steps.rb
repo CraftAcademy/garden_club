@@ -24,11 +24,9 @@ When(/^I click the "([^"]*)" link$/) do |link|
   click_link(link)
 end
 
-Given(/^I am a new, authenticated user$/) do
-  FactoryGirl.create(:user, email: 'email@email.com', password: 'password', password_confirmation: 'password')
-
+Given(/^I am logged in$/) do
   visit new_user_session_path
-  fill_in "Email", with: 'email@email.com'
+  fill_in "Email", with: 'anna@random.com'
   fill_in "Password", with: 'password'
   click_button "Log in"
 end
