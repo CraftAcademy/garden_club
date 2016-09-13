@@ -10,9 +10,18 @@
     <%= stylesheet_link_tag    'grids-responsive-min' %>
     <%= stylesheet_link_tag    'alerts' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  
+
   </head>
   <body>
-    <%= yield %>
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
