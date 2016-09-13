@@ -15,5 +15,5 @@ When(/^I click the "([^"]*)" button$/) do |button|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |page|
-  expect(current_path).to eq registration_index_path
+  expect(current_path).to eq new_user_registration_path
 end
