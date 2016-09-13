@@ -16,7 +16,7 @@ end
 
 Then(/^I should be on the "([^"]*)" page$/) do |page|
   goto = new_user_registration_path if page == "registration"
-  goto = edit_user_registration_path if page == "Edit Profile"
+  # goto = edit_user_registration_path if page == "Edit Profile"
   expect(current_path).to eq goto
 end
 
