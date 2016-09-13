@@ -3,5 +3,10 @@
 <div>
 Name: <br>
 Garden Website: <%= link_to current_user.garden_website%><br>
+About Me: <%= current_user.blurb %><br>
+Garden Address:<br>
+<%= current_user.g_street %><br>
+<%= current_user.g_street2 %><br>
+<%= current_user.g_postcode %>, <%= current_user.g_city %>, <%= current_user.g_country %>
 
 </div>

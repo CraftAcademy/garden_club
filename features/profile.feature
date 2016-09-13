@@ -22,5 +22,7 @@ Scenario:
   And I click the "Update" button
   Then I should be on the "Profile" page
   Then I should see "Your account has been updated successfully"
-  # When I visit the "Profile" page
   And I should see "www.garden.com"
+  And I should see "here's a blurb"
+  And I should see "street"
+  And I should see "414 63, Göteborg, Sverige"
