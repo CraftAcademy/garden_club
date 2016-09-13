@@ -3,9 +3,7 @@ Feature: As a user
   I would like to have a profile page.
 
 Background:
-  Given the following users exist:
-  | name   | email           |
-  | Anna   | anna@random.com |
+  Given I am a new, authenticated user
 
 Scenario:
   Given I am on my "profile" page
