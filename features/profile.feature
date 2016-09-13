@@ -15,6 +15,7 @@ Scenario:
   When I fill in "Garden Website" with "www.garden.com"
   And I fill in "Current password" with "password"
   And I click the "Update" button
-  Then I should be on the "Profile" page
-  And I should see "Your account has been updated successfully"
+  # Then I should be on the "Profile" page
+  Then I should see "Your account has been updated successfully"
+  When I visit the "Profile" page
   And I should see "www.garden.com"
