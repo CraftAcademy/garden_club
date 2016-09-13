@@ -13,7 +13,7 @@ Scenario:
   Then I should see "Edit Profile"
   When I click the "Edit Profile" link
   When I fill in "Garden Website" with "www.garden.com"
-  And I fill in "Blub" with "here's a blub"
+  And I fill in "Blurb" with "here's a blurb"
   And I fill in "Street" with "street"
   And I fill in "Post Code" with "414 63"
   And I fill in "City" with "Göteborg"
