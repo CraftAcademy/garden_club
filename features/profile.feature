@@ -10,6 +10,7 @@ Background:
 Scenario:
   Given I am logged in
   And I am on the "Edit Profile" page
-  And I should see "Edit My Profile"
-  And I should see "Anna"
+  Then I should see "Edit Profile"
+  When I click the "Edit Profile" link
+  Then I should see "Anna"
   And I should see "Email"
