@@ -12,5 +12,7 @@ Scenario:
   And I am on the "Edit Profile" page
   Then I should see "Edit Profile"
   When I click the "Edit Profile" link
-  Then I should see "Anna"
-  And I should see "Email"
+  When I fill in "Garden Website" with "www.garden.com"
+  And I click the "Edit" button
+  Then I should be on the "Profile" page
+  And I should see "www.garden.com"
