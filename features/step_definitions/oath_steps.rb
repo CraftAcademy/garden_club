@@ -1,5 +1,5 @@
 # this needs to be false if you're trying to test actual FB login functionality on the local server. Otherwise, keep it true to prevent us throwing a thousand requests at FB
-OmniAuth.config.test_mode = false
+OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:facebook] = nil
 OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({"provider"=>"facebook",
  "uid"=>"10101143923045869",
