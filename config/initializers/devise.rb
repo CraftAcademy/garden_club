@@ -250,7 +250,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   #need to get these into ENV somehow!!!
-  config.omniauth :facebook, $FACEBOOK_APP_ID, $FACEBOOK_SECRET,
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'],
                 callback_url: "http://www.amber.com/users/auth/facebook/callback"
 
   # ==> Warden configuration
