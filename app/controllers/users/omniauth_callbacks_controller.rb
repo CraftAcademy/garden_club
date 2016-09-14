@@ -1,6 +1,10 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  # def get
+  #   facebook
+  # end
+
   def facebook
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
+binding.pry
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
@@ -8,11 +12,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      redirect_to new_user_registration_path
     end
   end
 
   def failure
+    flash[:error] = "Facebook login failed"
     redirect_to root_path
   end
 
