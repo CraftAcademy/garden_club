@@ -14,4 +14,3 @@ Scenario: Logging in via facebook
   When I click the Sign in with Facebook link
   Then I should be on the "home" page
   And I should see "Welcome, Joe"
-  And I am logged in
