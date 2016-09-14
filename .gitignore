@@ -65,3 +65,4 @@ build-iPhoneSimulator/
 
 # Ignore secrets file
 .secrets.rb
+/app/config/facebook.yml
