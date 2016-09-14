@@ -1,3 +1,5 @@
+OmniAuth.config.test_mode = true
+
 Given(/^I am on the "([^"]*)" page$/) do |page|
   set_goto(page)
   visit @goto
@@ -21,11 +23,30 @@ When(/^I click the "([^"]*)" link$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |page|
-  expect(current_path).to eq registration_index_path
+  set_goto(page)
+  expect(current_path).to eq @goto
+end
+
+Given(/^I am logged in$/) do
+  visit new_user_session_path
+  fill_in "Email", with: 'anna@random.com'
+  fill_in "Password", with: 'MyPassword'
+  click_button "Log in"
+  expect(page).to have_content "Signed in successfully"
+end
+
+Given(/^I am not logged in$/) do
+  current_driver = Capybara.current_driver
+  begin
+    Capybara.current_driver = :rack_test
+    page.driver.submit :delete, "/users/sign_out", {}
+  ensure
+    Capybara.current_driver = current_driver
+  end
 end
 
 def set_goto(page)
-  @goto = user_facebook_omniauth_authorize if page == "Facebook Login"
+  @goto = user_facebook_omniauth_authorize_path if page == "Facebook Login"
   @goto = root_path if page == "home"
   @goto = new_user_session_path if page == "Login"
   @goto = new_user_registration_path if page == "registration"
