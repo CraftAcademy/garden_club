@@ -1,5 +1,3 @@
-OmniAuth.config.test_mode = true
-
 Given(/^I am on the "([^"]*)" page$/) do |page|
   set_goto(page)
   visit @goto
@@ -29,7 +27,7 @@ end
 
 Given(/^I am logged in$/) do
   visit new_user_session_path
-  fill_in "Email", with: 'anna@random.com'
+  fill_in "Email", with: 'themb@gmail.com'
   fill_in "Password", with: 'MyPassword'
   click_button "Log in"
   expect(page).to have_content "Signed in successfully"
