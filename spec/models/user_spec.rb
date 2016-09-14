@@ -6,6 +6,8 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_db_column :name }
   it { is_expected.to have_db_column :email }
   it { is_expected.to have_db_column :encrypted_password }
+  it { is_expected.to have_db_column :provider}
+  it { is_expected.to have_db_column :uid }
 end
 
 describe 'Validations' do
@@ -52,4 +54,12 @@ describe 'Email validations' do
     expect(FactoryGirl.build(:user, email: "am ber@amber.com", email_confirmation: "am ber@amber.com")).not_to be_valid
   end
 end
+
+describe 'Facebook validations'
+  it 'should save with FB information' do
+    @user = User.new(email: "amber@amber.com", password: "password", password_confirmation: "password")
+    binding.pry
+    @user.from_omniauth({hash: {provider: 'facebook', uid: '13247098'}})
+    expect(User.first).not_to be nil
+  end
 end
