@@ -62,3 +62,6 @@ build-iPhoneSimulator/
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore secrets file
+.secrets.rb
