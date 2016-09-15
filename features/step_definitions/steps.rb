@@ -59,14 +59,6 @@ def set_goto(page)
   @goto = private_path if page == "private information"
 end
 
-
-Given(/^I am logged in$/) do
-  visit new_user_session_path
-  fill_in "Email", with: 'anna@random.com'
-  fill_in "Password", with: 'password'
-  click_button "Log in"
-end
-
 Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, name|
   user_id = User.find_by(name: name).id
   case page

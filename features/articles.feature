@@ -14,7 +14,7 @@ Background:
     | Three   | Three good texts |
 
 Scenario: Write an article
-  Given I am logged in
+  Given I am logged in as "anna@random.com"
   And the user "anna@random.com" should exist with name "Anna"
   And I am on the "compose" page for "Anna"
   Then I should see "Publish article"
