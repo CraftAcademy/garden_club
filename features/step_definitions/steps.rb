@@ -8,7 +8,6 @@ When(/^I visit the "([^"]*)" page$/) do |page|
   set_goto(page)
   visit @goto
   expect(current_path).to eq @goto
->>>>>>> 2e9e13d9681373060eb279983060c2d5d03103c4
 end
 
 Then(/^I should see "([^"]*)"$/) do |text|

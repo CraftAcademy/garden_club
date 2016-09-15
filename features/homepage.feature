@@ -6,6 +6,6 @@ Background:
   | Anna   | anna@random.com |
 
 Scenario: Seeing front-page bits
-  Given I am logged in
+  Given I am logged in as "anna@random.com"
   When I visit the "home" page
   Then I should see "Logout"
