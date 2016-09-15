@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
 
   <div class="pure-control-group">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -13,43 +13,31 @@
   <% end %>
 
   <div class="pure-control-group">
-    <%= f.label :name %><br />
-    <%= f.email_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="pure-control-group">
-    <%= f.label :garden_website, 'Garden Website' %><br />
+    <%= f.label :garden_website, 'Garden Website' %>
     <%= f.text_field :garden_website %>
   </div>
 
   <div class="pure-control-group">
-    <%= f.label :blurb %><br />
+    <%= f.label :blurb %>
     <%= f.text_area :blurb %>
   </div>
 
   <div class="pure-control-group">
-    Garden Address:
-    <%= f.label :g_street, 'Street' %><br />
-    <%= f.text_field :g_street %>
-  </div>
-
-  <div class="pure-control-group">
-    <%= f.label :g_street2, 'Street, Continued' %><br />
-    <%= f.text_field :g_street2 %>
-  </div>
-
-  <div class="pure-control-group">
-    <%= f.label :g_city, 'City' %><br />
-    <%= f.text_field :g_city %>
-  </div>
-
-  <div class="pure-control-group">
-    <%= f.label :g_postcode, 'Post Code' %><br />
-    <%= f.text_field :g_postcode %>
-  </div>
-
-  <div class="pure-control-group">
-    <%= f.label :g_country, 'Country' %><br />
+    Garden Address:<br>
+    <%= f.label :g_street, 'Street' %>
+    <%= f.text_field :g_street %><br>
+    <%= f.label :g_street2, 'Street, Continued' %>
+    <%= f.text_field :g_street2 %><br>
+    <%= f.label :g_city, 'City' %>
+    <%= f.text_field :g_city %><br>
+    <%= f.label :g_postcode, 'Post Code' %>
+    <%= f.text_field :g_postcode %><br>
+    <%= f.label :g_country, 'Country' %>
     <%= f.text_field :g_country %>
   </div>
 
@@ -63,7 +51,7 @@
   </div>
 
   <div class="pure-control-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
