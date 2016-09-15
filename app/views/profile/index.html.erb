@@ -1,7 +1,7 @@
 <h1>My Profile</h1>
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 <div>
-  Name: <br>
+  Name: <%= link_to current_user.name %><br>
   Garden Website: <%= link_to current_user.garden_website%><br>
   About Me: <%= current_user.blurb %><br>
   Garden Address:<br>
