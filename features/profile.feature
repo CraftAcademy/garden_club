@@ -8,8 +8,8 @@ Background:
   | Anna   | anna@random.com |
 
 Scenario:
-  Given I am logged in
-  And I am on the "Edit Profile" page
+  Given I am logged in as "anna@random.com"
+  And I am on the "Profile" page
   Then I should see "Edit Profile"
   When I click the "Edit Profile" link
   When I fill in "Garden Website" with "www.garden.com"

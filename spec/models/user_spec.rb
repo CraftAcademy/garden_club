@@ -2,63 +2,19 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'DB table' do
-<<<<<<< HEAD
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :name }
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :encrypted_password }
+    it { is_expected.to have_db_column :garden_website }
+    it { is_expected.to have_db_column :blurb }
+    it { is_expected.to have_db_column :g_street }
+    it { is_expected.to have_db_column :g_street2 }
+    it { is_expected.to have_db_column :g_postcode }
+    it { is_expected.to have_db_column :g_city }
+    it { is_expected.to have_db_column :g_country }
     it { is_expected.to have_db_column :provider}
     it { is_expected.to have_db_column :uid }
-||||||| merged common ancestors
-  it { is_expected.to have_db_column :id }
-  it { is_expected.to have_db_column :name }
-  it { is_expected.to have_db_column :email }
-  it { is_expected.to have_db_column :encrypted_password }
-end
-
-describe 'Validations' do
-  it { is_expected.to validate_presence_of :name }
-  it { is_expected.to validate_presence_of :email }
-  it { is_expected.to validate_presence_of :password }
-  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-  it { is_expected.to validate_confirmation_of :password }
-  it { is_expected.to validate_length_of :password }
-
-  # it 'should validate email is equal to email_confirmatiion' do
-  #   expect(FactoryGirl.create(:user, email: 'amber@amber.com', email_confirmation: 'amber@other.com')).not_to be_valid
-  # end
-end
-
-describe 'Factory' do
-  it 'should have valid Factory' do
-    expect(FactoryGirl.create(:user)).to be_valid
-=======
-  it { is_expected.to have_db_column :id }
-  it { is_expected.to have_db_column :name }
-  it { is_expected.to have_db_column :email }
-  it { is_expected.to have_db_column :encrypted_password }
-  it { is_expected.to have_db_column :garden_website }
-  it { is_expected.to have_db_column :blurb }
-  it { is_expected.to have_db_column :g_street }
-  it { is_expected.to have_db_column :g_street2 }
-  it { is_expected.to have_db_column :g_postcode }
-  it { is_expected.to have_db_column :g_city }
-  it { is_expected.to have_db_column :g_country }
-end
-
-describe 'Validations' do
-  it { is_expected.to validate_presence_of :name }
-  it { is_expected.to validate_presence_of :email }
-  it { is_expected.to validate_presence_of :password }
-  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-  it { is_expected.to validate_confirmation_of :password }
-  it { is_expected.to validate_length_of :password }
-end
-
-describe 'Factory' do
-  it 'should have valid Factory' do
-    expect(FactoryGirl.create(:user)).to be_valid
->>>>>>> 2fd175f61671981cb7362a83e2847ea750e6d310
   end
 
   describe 'Validations' do
@@ -68,10 +24,6 @@ describe 'Factory' do
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     it { is_expected.to validate_confirmation_of :password }
     it { is_expected.to validate_length_of :password }
-
-    # it 'should validate email is equal to email_confirmatiion' do
-    #   expect(FactoryGirl.create(:user, email: 'amber@amber.com', email_confirmation: 'amber@other.com')).not_to be_valid
-    # end
   end
 
   describe 'Factory' do

@@ -31,10 +31,10 @@ Then(/^I should be on the "([^"]*)" page$/) do |page|
   expect(current_path).to eq @goto
 end
 
-Given(/^I am logged in$/) do
+Given(/^I am logged in as "([^"]*)"$/) do |email|
   visit new_user_session_path
-  fill_in "Email", with: 'themb@gmail.com'
-  fill_in "Password", with: 'MyPassword'
+  fill_in "Email", with: email
+  fill_in "Password", with: 'password'
   click_button "Log in"
   expect(page).to have_content "Signed in successfully"
 end
