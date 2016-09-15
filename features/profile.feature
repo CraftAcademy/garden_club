@@ -4,8 +4,8 @@ Feature: As a user
 
 Background:
   Given the following users exist:
-  | name   | email           |
-  | Anna   | anna@random.com |
+    | name   | email           |
+    | Anna   | anna@random.com |
 
   And "Anna" has written the following articles:
     | title   | body             |

@@ -7,6 +7,12 @@ Background:
   | name   | email           | password  |  password_confirmation |
   | Anna   | anna@random.com | password  |  password              |
 
+  And "Anna" has written the following articles:
+    | title   | body             |
+    | One     | One awesome text |
+    | Two     | Two awesome text |
+    | Three   | Three good texts |
+
 Scenario: Write an article
   Given I am logged in
   And the user "anna@random.com" should exist with name "Anna"
@@ -24,6 +30,15 @@ Scenario: Write an article
   And I should see "Article Title 2"
 
 
-  Scenario: Trying to write an article when not logged in
-    Given I am on someones compose page
-    Then I should see "You are not logged in"
+Scenario: Trying to write an article when not logged in
+  Given I am on someones compose page
+  Then I should see "You are not logged in"
+
+Scenario: Viewing the full contents of an article, logged in
+  Given I am on the article page for article "One"
+  Then I should see "One awesome text"
+
+Scenario: Viewing the full contents of an article, logged out
+  Given I am not logged in
+  And I am on the article page for article "One"
+  Then I should see "One awesome text"
