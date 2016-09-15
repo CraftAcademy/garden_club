@@ -24,7 +24,6 @@ Scenario Outline: User sign up sad path
   | Name   | Email   | Password   | Password Confirmation   |
   | <name> | <email> | <password> | <password_confirmation> |
   When I click the "Register" button
-  # Then I should be on the "registration" page
   And I should see <error>
 
 Scenarios:

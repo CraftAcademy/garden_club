@@ -21,14 +21,33 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
 }
 
 .content-head {
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 2em 0 1em;
 }
 
 .is-center {
-    text-align: center;
+  text-align: center;
 }
 
-.hundra {width:100%;}
+.hundra {
+  width: 100%;
+}
+
+.user {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+a:link {
+  color: #FF891C;
+}
+
+a:visited {
+  color: #dd6758;
+}
+
+a:hover {
+  color: #000;
+}

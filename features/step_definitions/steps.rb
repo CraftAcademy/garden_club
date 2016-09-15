@@ -4,6 +4,12 @@ Given(/^I am on the "([^"]*)" page$/) do |page|
   expect(current_path).to eq @goto
 end
 
+When(/^I visit the "([^"]*)" page$/) do |page|
+  set_goto(page)
+  visit @goto
+  expect(current_path).to eq @goto
+end
+
 Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_content(text)
 end

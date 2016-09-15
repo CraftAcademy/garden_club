@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -22,13 +21,5 @@ class User < ApplicationRecord
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
-
-  # def check_email_conf?
-  #   if @email == @email_confirmatiion
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
 
 end
