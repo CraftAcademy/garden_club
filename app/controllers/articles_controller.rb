@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     if user_signed_in?
       @user = User.find(params[:user_id])
       @article = @user.articles.create(article_params)
-      redirect_to user_article_path(@user.id, @article.id)
+      redirect_to user_articles_path(@user.id, @article.id)
     else
       redirect_to new_user_session_path
       flash[:notice] = error_message
