@@ -37,6 +37,9 @@ Scenario: Updating my profile
   And I should see "street"
   And I should see "414 63, Göteborg, Sverige"
 
+Scenario: I haven't entered a name for my profile
+  # We need to test the name display on profile page
+
 Scenario: Viewing someone else's profile
   Given I am not logged in
   When I am on the "profile" page for "Anna"
@@ -44,5 +47,10 @@ Scenario: Viewing someone else's profile
 
 Scenario: Anna can see her own articles on her profile
   Given I am logged in as "anna@random.com"
+  And I am on the "profile" page for "Anna"
+  Then I should see "Three good texts"
+
+Scenario: A non-logged-in user can see Anna's articles on her profile
+  Given I am not logged in
   And I am on the "profile" page for "Anna"
   Then I should see "Three good texts"

@@ -2,20 +2,26 @@
 <h1>Profile for <%= @user.name %></h1>
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 <div>
-  Name: <%= @user.name %><br>
-  Garden Website: <%= link_to @user.garden_website%><br>
-  About Me: <%= @user.blurb %><br>
-  Garden Address:<br>
-  <%= @user.g_street %><br>
-  <%= @user.g_street2 %><br>
-  <%= @user.g_postcode %>, <%= @user.g_city %>, <%= @user.g_country %>
+  Name: <%= @user.name || "No name provided" %><br>
+  <% unless @user.garden_website == nil %>
+    Garden Website: <%= link_to @user.garden_website%><br>
+  <% end %>
+  <% unless @user.blurb == nil %>
+    About Me: <%= @user.blurb %><br>
+  <% end %>
+  <% unless @user.g_street == nil %>
+    Garden Address:<br>
+    <%= @user.g_street %><br>
+    <%= @user.g_street2 %><br>
+    <%= @user.g_postcode %>, <%= @user.g_city %>, <%= @user.g_country %>
+  <% end %>
 
 </div>
 <div>
   <% if @user.articles != nil %>
     <% @user.articles.each do |article| %>
-      <%= article.title %>
-      <%= article.body %>
+      <h3 class="content-head is-center"><%= article.title %></h3>
+      <p class="is-center"><%= article.body %></p>
       <% end %>
   <% end %>
 </div>
