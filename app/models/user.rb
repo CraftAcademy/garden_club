@@ -11,10 +11,8 @@ class User < ApplicationRecord
   :uniqueness => {
     :case_sensitive => false}
   validates :email, presence: true,
-                  # confirmation: true,
                   uniqueness: true,
                   format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  # validates_presence_of :email, presence: true, if: -> {check_email_conf?}
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
