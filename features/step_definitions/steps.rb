@@ -37,6 +37,7 @@ Given(/^I am logged in$/) do
 end
 
 def set_goto(page)
+  @goto = root_path if page == "home"
   @goto = new_user_registration_path if page == "registration"
   @goto = edit_user_registration_path if page == "Edit Profile"
   @goto = profile_path if page == "Profile"
