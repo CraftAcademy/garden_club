@@ -9,7 +9,9 @@ Background:
 
 Scenario:
   Given I am logged in
-  And I am on the "Edit Profile" page
+  And I am on the "home" page
+  When I click the "My Profile" link
+  Then I should be on the "Profile" page
   Then I should see "Edit Profile"
   When I click the "Edit Profile" link
   When I fill in "Garden Website" with "www.garden.com"

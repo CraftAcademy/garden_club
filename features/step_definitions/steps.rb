@@ -1,5 +1,7 @@
 Given(/^I am on the "([^"]*)" page$/) do |page|
-  visit new_user_registration_path
+  set_goto(page)
+  visit @goto
+  expect(current_path).to eq @goto
 end
 
 Then(/^I should see "([^"]*)"$/) do |text|
