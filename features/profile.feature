@@ -7,6 +7,12 @@ Background:
   | name   | email           |
   | Anna   | anna@random.com |
 
+  And "Anna" has written the following articles:
+    | title   | body             |
+    | One     | One awesome text |
+    | Two     | Two awesome text |
+    | Three   | Three good texts |
+
 Scenario: Updating my profile
   Given I am logged in as "anna@random.com"
   And I am on the "home" page
@@ -35,3 +41,8 @@ Scenario: Viewing someone else's profile
   Given I am not logged in
   When I am on the "profile" page for "Anna"
   Then I should see "Profile for Anna"
+
+Scenario: Anna can see her own articles on her profile
+  Given I am logged in as "anna@random.com"
+  And I am on the "profile" page for "Anna"
+  Then I should see "Three good texts"

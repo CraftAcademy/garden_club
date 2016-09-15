@@ -11,3 +11,11 @@
   <%= @user.g_postcode %>, <%= @user.g_city %>, <%= @user.g_country %>
 
 </div>
+<div>
+  <% if @user.articles != nil %>
+    <% @user.articles.each do |article| %>
+      <%= article.title %>
+      <%= article.body %>
+      <% end %>
+  <% end %>
+</div>
