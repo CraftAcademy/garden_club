@@ -29,7 +29,6 @@ Scenario: Write an article
   Then I should see "Article Title"
   And I should see "Article Title 2"
 
-
 Scenario: Trying to write an article when not logged in
   Given I am on someones compose page
   Then I should see "You are not logged in"

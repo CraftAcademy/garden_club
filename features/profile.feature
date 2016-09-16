@@ -20,22 +20,26 @@ Scenario: Updating my profile
   Then I should be on the "profile" page for "Anna"
   And I should see "Edit Profile"
   When I click the "Edit Profile" link
-  When I fill in "Name" with "Amber Bo Bamber"
-  When I fill in "Garden Website" with "www.garden.com"
-  And I fill in "Blurb" with "here's a blurb"
-  And I fill in "Street" with "street"
-  And I fill in "Post Code" with "414 63"
-  And I fill in "City" with "Göteborg"
-  And I fill in "Country" with "Sverige"
-  And I fill in "Current password" with "password"
+  And I fill in:
+    | element         | content         |
+    | Name            | Amber Bo Bamber |
+    | Garden Website  | www.garden.com  |
+    | Blurb           | here's a blurb  |
+    | Street          | street          |
+    | Post Code       | 414 63          |
+    | City            | Göteborg        |
+    | Country         | Sverige         |
+    | Current password| password        | 
   And I click the "Update" button
   Then I should be on the "profile" page for "Amber Bo Bamber"
-  And I should see "Amber Bo Bamber"
-  And I should see "Your account has been updated successfully"
-  And I should see "www.garden.com"
-  And I should see "here's a blurb"
-  And I should see "street"
-  And I should see "414 63, Göteborg, Sverige"
+  Then I should see:
+    | content                                    |
+    | Amber Bo Bamber                            |
+    | Your account has been updated successfully |
+    | www.garden.com                             |
+    | here's a blurb                             |
+    | street                                     |
+    | 414 63, Göteborg, Sverige                  |
 
 Scenario: Viewing someone else's profile
   Given I am not logged in
