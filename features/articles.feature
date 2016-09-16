@@ -42,3 +42,9 @@ Scenario: Viewing the full contents of an article, logged out
   Given I am not logged in
   And I am on the article page for article "One"
   Then I should see "One awesome text"
+
+Scenario: Viewing an article from the user's article index
+  Given I am on the "article index" for "Anna"
+  Then I should see "One"
+  When I click the "One" link
+  Then I should see "One awesome text"

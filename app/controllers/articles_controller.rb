@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if user_signed_in?
+    if current_user
       @user = User.find(params[:user_id])
       @article = @user.articles.create(article_params)
       redirect_to user_articles_path(@user.id, @article.id)
@@ -24,13 +24,10 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    if user_signed_in?
-      @article = Article.all
-    else
-      redirect_to new_user_session_path
-      flash[:notice] = error_message
-    end
+    @article = Article.find_by(user_id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])
   end
+
   private
   def article_params
      params.require(:article).permit(:title, :body, :user_id)
