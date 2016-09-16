@@ -86,7 +86,8 @@ Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, name|
   end
 end
 
-
-Given(/^I am on someones compose page$/) do
-  visit new_user_article_path(1)
+Then(/^I should see:$/) do |table|
+  table.hashes.each do |hash|
+    expect(page).to have_content hash[:content]
+  end
 end

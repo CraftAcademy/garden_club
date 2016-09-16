@@ -15,6 +15,10 @@ Given(/^I am on the "([^"]*)" for "([^"]*)"$/) do |page, user|
   visit user_articles_path(@user)
 end
 
+Given(/^I am on someones compose page$/) do
+  visit new_user_article_path(1)
+end
+
 def set_user(name)
   @user = User.find_by(name: name)
 end
