@@ -13,6 +13,21 @@
 
   </head>
   <body>
+    <div class="menu pure-menu pure-menu-horizontal">
+        <%= link_to 'GARDEN CLUB', root_path, class: 'pure-menu-heading pure-menu-link'%>
+        <ul class="pure-menu-list">
+          <% if current_user %>
+            <li class="pure-menu-item"><%= link_to 'My Profile', profile_path, class: 'pure-menu-link' %></li>
+            <li class="pure-menu-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'pure-menu-link' %></li>
+          <% else %>
+            <li class="pure-menu-item"><%= link_to 'Log In', new_user_session_path, class: 'pure-menu-link' %></li>
+          <% end %>
+          <% if user_signed_in? %>
+            <li class="pure-menu-item"><%= link_to 'Write article', new_user_article_path(current_user), class: 'pure-menu-link' %></a></li>
+          <% end %>
+        </ul>
+    </div>
+
     <div class="pure-g">
       <div class="pure-u-1">
         <% flash.each do |key, value| %>
@@ -22,7 +37,7 @@
         <% end %>
       </div>
     </div>
-    <div class="content">
+    <div class="main-content">
       <%= yield %>
     </div>
   </body>
