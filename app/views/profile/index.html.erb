@@ -1,12 +1,29 @@
-<h1>My Profile</h1>
+<% @user = User.find_by_id(params[:user_id])%>
+<h1>Profile for <%= @user.name %></h1>
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 <div>
-  Name: <%= link_to current_user.name %><br>
-  Garden Website: <%= link_to current_user.garden_website%><br>
-  About Me: <%= current_user.blurb %><br>
-  Garden Address:<br>
-  <%= current_user.g_street %><br>
-  <%= current_user.g_street2 %><br>
-  <%= current_user.g_postcode %>, <%= current_user.g_city %>, <%= current_user.g_country %>
+  Name: <%= @user.name %><br>
+  <% unless @user.garden_website == nil %>
+    Garden Website: <%= link_to @user.garden_website%><br>
+  <% end %>
+  <% unless @user.blurb == nil %>
+    About Me: <%= @user.blurb %><br>
+  <% end %>
+  <% unless @user.g_street == nil %>
+    Garden Address:<br>
+    <%= @user.g_street %><br>
+    <%= @user.g_street2 %><br>
+    <%= @user.g_postcode %>, <%= @user.g_city %>, <%= @user.g_country %>
+  <% end %>
 
+</div>
+<div>
+  <% if @user.articles != nil %>
+    <% @user.articles.each do |article| %>
+      <h3 class="content-head is-center"><%= article.title %></h3>
+      <p class="is-center"><%= article.body.truncate_words(100) %>
+        <% if article.body.split.size > 100 %><%= link_to 'Read more', article %><% end %>
+      </p>
+      <% end %>
+  <% end %>
 </div>

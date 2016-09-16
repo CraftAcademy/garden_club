@@ -55,16 +55,8 @@ def set_goto(page)
   @goto = new_user_session_path if page == "Login"
   @goto = new_user_registration_path if page == "registration"
   @goto = edit_user_registration_path if page == "Edit Profile"
-  @goto = profile_path if page == "Profile"
+  @goto = user_profile_path if page == "Profile"
   @goto = private_path if page == "private information"
-end
-
-
-Given(/^I am logged in$/) do
-  visit new_user_session_path
-  fill_in "Email", with: 'anna@random.com'
-  fill_in "Password", with: 'password'
-  click_button "Log in"
 end
 
 Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, name|
@@ -76,11 +68,26 @@ Given(/^I am on the "([^"]*)" page for "([^"]*)"$/) do |page, name|
   when "article"
     visit user_articles_path(user_id)
     expect(current_path).to eq user_articles_path(user_id)
+  when "profile"
+    visit user_profile_path(user_id)
+    expect(current_path).to eq user_profile_path(user_id)
   else
     "nothing"
   end
 end
 
-Given(/^I am on someones compose page$/) do
-  visit new_user_article_path(1)
+Then(/^I should be on the "([^"]*)" page for "([^"]*)"$/) do |page, name|
+  user_id = User.find_by(name: name).id
+  case page
+  when "profile"
+    expect(current_path).to eq user_profile_path(user_id)
+  else
+    "nothing"
+  end
+end
+
+Then(/^I should see:$/) do |table|
+  table.hashes.each do |hash|
+    expect(page).to have_content hash[:content]
+  end
 end

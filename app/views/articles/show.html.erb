@@ -2,3 +2,6 @@
 <p>
   <%= @article.body %>
 </p>
+<p>
+  Author: <%= link_to @article.user.name, user_profile_path(@article.user) %>
+</p>

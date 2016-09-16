@@ -17,7 +17,7 @@
         <%= link_to 'GARDEN CLUB', root_path, class: 'pure-menu-heading pure-menu-link'%>
         <ul class="pure-menu-list">
           <% if current_user %>
-            <li class="pure-menu-item"><%= link_to 'My Profile', profile_path, class: 'pure-menu-link' %></li>
+            <li class="pure-menu-item"><%= link_to 'My Profile', user_profile_path(current_user), class: 'pure-menu-link' %></li>
             <li class="pure-menu-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'pure-menu-link' %></li>
           <% else %>
             <li class="pure-menu-item"><%= link_to 'Log In', new_user_session_path, class: 'pure-menu-link' %></li>
