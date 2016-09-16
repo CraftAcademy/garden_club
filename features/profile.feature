@@ -29,7 +29,7 @@ Scenario: Updating my profile
     | Post Code       | 414 63          |
     | City            | Göteborg        |
     | Country         | Sverige         |
-    | Current password| password        | 
+    | Current password| password        |
   And I click the "Update" button
   Then I should be on the "profile" page for "Amber Bo Bamber"
   Then I should see:
@@ -55,3 +55,8 @@ Scenario: A non-logged-in user can see Anna's articles on her profile
   Given I am not logged in
   And I am on the "profile" page for "Anna"
   Then I should see "Three good texts"
+
+Scenario: I can't edit someone else's profile
+  Given I am not logged in
+  When I try to visit the "Edit Profile" page
+  Then I should see "You need to sign in or sign up before continuing."
