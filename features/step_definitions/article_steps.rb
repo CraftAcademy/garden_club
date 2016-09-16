@@ -15,8 +15,9 @@ Given(/^I am on the "([^"]*)" for "([^"]*)"$/) do |page, user|
   visit user_articles_path(@user)
 end
 
-Given(/^I am on someones compose page$/) do
-  visit new_user_article_path(1)
+Given(/^I visit someones compose page$/) do
+  @user = FactoryGirl.create(:user)
+  visit new_user_article_path(@user)
 end
 
 def set_user(name)

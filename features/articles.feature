@@ -30,7 +30,8 @@ Scenario: Write an article
   And I should see "Article Title 2"
 
 Scenario: Trying to write an article when not logged in
-  Given I am on someones compose page
+  Given I am not logged in
+  And I visit someones compose page
   Then I should see "You are not logged in"
 
 Scenario: Viewing the full contents of an article, logged in
