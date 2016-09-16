@@ -21,7 +21,9 @@
   <% if @user.articles != nil %>
     <% @user.articles.each do |article| %>
       <h3 class="content-head is-center"><%= article.title %></h3>
-      <p class="is-center"><%= article.body.truncate_words(100) %></p>
+      <p class="is-center"><%= article.body.truncate_words(100) %>
+        <% if article.body.split.size > 100 %><%= link_to 'Read more', article %><% end %>
+      </p>
       <% end %>
   <% end %>
 </div>
