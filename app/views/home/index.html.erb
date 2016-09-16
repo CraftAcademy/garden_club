@@ -9,12 +9,6 @@
 <%= link_to new_user_article_path(current_user), new_user_article_path(current_user) %>
 <% end %>
 
-<% if current_user %>
-  <%= link_to 'My Profile', user_profile_path(current_user) %><br>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Log In", new_user_session_path %>
-<% end %>
 <h1 class="content-head is-center">Current Articles</h1>
 <% if Article.all != [] %>
   <% Article.all.each do |article| %>
