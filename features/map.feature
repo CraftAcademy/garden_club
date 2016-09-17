@@ -9,4 +9,4 @@ Scenario: Viewing a user's garden map
   When I am on the "profile" page for "Hanna"
   Then "Hanna" should have a latitude
   Then I should see "Gatan 2"
-  And I should see "Google Maps"
+  And I should see "Map"

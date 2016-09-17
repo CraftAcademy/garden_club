@@ -30,7 +30,6 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'omniauth-facebook'
-gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -47,6 +46,7 @@ group :development, :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 group :development do
