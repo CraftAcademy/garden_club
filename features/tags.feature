@@ -30,5 +30,6 @@ Scenario: Viewing all articles with the same tag
   Given I am on the article page for article "One"
   Then I should see "awesomesauce"
   When I click the "awesomesauce" link
-  Then I should see "Three"
+  Then I should see "Articles tagged with awesomesauce"
+  And I should see "Three"
   And I should not see "Two"

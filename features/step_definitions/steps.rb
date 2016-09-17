@@ -101,3 +101,7 @@ Then(/^I should see:$/) do |table|
     expect(page).to have_content hash[:content]
   end
 end
+
+Then(/^show me the page$/) do
+  save_and_open_page
+end
