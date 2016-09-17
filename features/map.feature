@@ -7,5 +7,6 @@ Scenario: Viewing a user's garden map
     | name    | email            | g_street  | g_postcode | g_city     | g_country |
     | Hanna   | hanna@random.com | Gatan 2   | 414 63     | Göteborg   | Sverige   |
   When I am on the "profile" page for "Hanna"
+  Then "Hanna" should have a latitude
   Then I should see "Gatan 2"
   And I should see "Google Maps"
