@@ -10,6 +10,6 @@
   Tags:
   <% @last = @tags.last %>
   <% @tags.each do |tag| %>
-    <%= link_to tag %><% unless tag == @last || @tags.nil? %>,<% end %>
+    <%= link_to tag, tag_path(tag) %><% unless tag == @last || @tags.nil? %>,<% end %>
   <% end %>
 </p>

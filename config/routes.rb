@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     get 'profile', controller: :profile, action: :index
   end
   root controller: :home, action: :index
+  resources :tags, only: :show
 
 end
