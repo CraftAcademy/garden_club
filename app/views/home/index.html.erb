@@ -10,9 +10,8 @@
 <div>
   <p>
     Popular tags:
-    <% @last = @poptags.last %>
     <% @poptags.each do |hash| %>
-      <%= link_to hash.name, tag_path(hash.id) %>
+      <%= link_to hash.name, tag_path(hash.name) %>
       <% unless hash == @poptags.last || @poptags.nil?%>, <% end %>
     <% end %>
   </p>
