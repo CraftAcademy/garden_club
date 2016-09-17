@@ -1,4 +1,3 @@
-<% @user = User.find_by_id(params[:user_id])%>
 <h1>Profile for <%= @user.name %></h1>
 <% if current_user %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
@@ -6,7 +5,7 @@
 <div>
   Name: <%= @user.name %><br>
   <% unless @user.garden_website == "" %>
-    Garden Website: <%= link_to @user.garden_website%><br>
+    Garden Website: <%= link_to @user.garden_website, @user_garden_website %><br>
   <% end %>
   <% unless @user.blurb == "" %>
     About Me: <%= @user.blurb %><br>
