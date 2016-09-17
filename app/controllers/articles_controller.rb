@@ -31,15 +31,10 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    clean_tag_list(clean_tag_list(params[:tag_list]))
     params.require(:article).permit(:title, :body, :user_id, :tag_list)
   end
 
   def error_message
     "You are not logged in - you need to be logged in to see the page you were trying to reach"
-  end
-
-  def clean_tag_list(tag_list)
-
   end
 end
