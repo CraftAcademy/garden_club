@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-     params.require(:article).permit(:title, :body, :user_id)
+     params.require(:article).permit(:title, :body, :user_id, :tag_list)
   end
 
   def error_message
