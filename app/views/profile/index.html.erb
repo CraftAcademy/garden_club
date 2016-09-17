@@ -5,17 +5,21 @@
 <% end %>
 <div>
   Name: <%= @user.name %><br>
-  <% unless @user.garden_website == nil %>
+  <% unless @user.garden_website == "" %>
     Garden Website: <%= link_to @user.garden_website%><br>
   <% end %>
-  <% unless @user.blurb == nil %>
+  <% unless @user.blurb == "" %>
     About Me: <%= @user.blurb %><br>
   <% end %>
-  <% unless @user.g_street == nil %>
+  <% unless @user.g_street == "" %>
     Garden Address:<br>
-    <%= @user.g_street %><br>
-    <%= @user.g_street2 %><br>
-    <%= @user.g_postcode %>, <%= @user.g_city %>, <%= @user.g_country %>
+    <% unless @user.g_street == "" %>
+      <%= @user.g_street %><br>
+    <% end %>
+    <% unless @user.g_street2 == "" %>
+      <%= @user.g_street2 %><br>
+    <% end %>
+    <% unless @user.g_postcode == "" %><%= @user.g_postcode %><% end %><% unless @user.g_city == "" %>, <%= @user.g_city %><% end %><% unless @user.g_country == "" %>, <%= @user.g_country %><% end %>
   <% end %>
 
 </div>

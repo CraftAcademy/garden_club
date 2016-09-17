@@ -6,7 +6,7 @@
   Author: <%= link_to @article.user.name, user_profile_path(@article.user) %>
 </p>
 <p>
-  Tags:
+  <% unless @tags.first.nil? %>Tags:<% end %>
   <% @tags.each do |tag| %>
     <%= link_to tag, tag_path(tag) %><% unless tag == @last || @tags.nil? %>,<% end %>
   <% end %>
