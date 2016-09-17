@@ -2,7 +2,7 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 <h1>Profile for <%= @user.name %></h1>
-<% if current_user %>
+<% if current_user == @user %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 <% end %>
 <div>
