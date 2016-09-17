@@ -6,11 +6,17 @@
 <% else %>
   <h1 class="content-head is-center">Home#index</h1>
 <% end %>
-<p>Find me in app/views/home/index.html.erb</p>
 
-<% if current_user %>
-<%= link_to new_user_article_path(current_user), new_user_article_path(current_user) %>
-<% end %>
+<div>
+  <p>
+    Popular tags:
+    <% @last = @poptags.last %>
+    <% @poptags.each do |hash| %>
+      <%= link_to hash.name, tag_path(hash.id) %>
+      <% unless hash == @poptags.last || @poptags.nil?%>, <% end %>
+    <% end %>
+  </p>
+</div>
 
 <h1 class="content-head is-center">Current Articles</h1>
 <% if Article.all != [] %>

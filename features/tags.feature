@@ -10,7 +10,7 @@ Background:
   And "Jimi" has written the following articles:
     | title   | body             | tags         |
     | One     | One awesome text | awesomesauce |
-    | Two     | Two awesome text |              |
+    | Two     | Two awesome text | tornado      |
     | Three   | Three good texts | awesomesauce |
 
 Scenario: Adding a tag to an article
@@ -36,3 +36,7 @@ Scenario: Viewing all articles with the same tag
   When I click the "Three" link
   Then I am on the article page for article "Three"
   And I should see "Three good texts"
+
+Scenario: Display tag list on home page
+  Given I am on the "home" page
+  Then I should see "Popular tags: awesomesauce"
