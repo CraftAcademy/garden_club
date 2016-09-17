@@ -10,6 +10,7 @@ end
 
 Given(/^I am on the article page for article "([^"]*)"$/) do |title|
   visit article_path(Article.find_by(title: title))
+  expect(current_path).to eq article_path(Article.find_by(title: title))
 end
 
 Given(/^I am on the "([^"]*)" for "([^"]*)"$/) do |page, user|

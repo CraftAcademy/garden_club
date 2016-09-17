@@ -33,3 +33,6 @@ Scenario: Viewing all articles with the same tag
   Then I should see "Articles tagged with awesomesauce"
   And I should see "Three"
   And I should not see "Two"
+  When I click the "Three" link
+  Then I am on the article page for article "Three"
+  And I should see "Three good texts"
