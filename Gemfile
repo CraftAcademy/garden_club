@@ -34,6 +34,7 @@ gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'underscore-rails'
 
 group :development, :test do
   gem 'rspec-rails'
