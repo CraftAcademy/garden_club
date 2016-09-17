@@ -33,6 +33,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -77,10 +77,4 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe 'Geocode' do
-  #   it 'should geocode addresses' do
-  #     expect(FactoryGirl.build(:user, g_street: '4201 31st Street S', g_street2: 'Apt 747', g_postcode: '22206', g_city: 'Arlington', g_country: 'USA').latitude).to eq '2340237'
-  #   end
-  # end
-
 end
