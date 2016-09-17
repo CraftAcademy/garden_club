@@ -31,6 +31,7 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'rspec-rails'
