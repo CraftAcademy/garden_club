@@ -8,10 +8,10 @@ Background:
     | Jimi   | jimi@random.com |
 
   And "Jimi" has written the following articles:
-    | title   | body             |
-    | One     | One awesome text |
-    | Two     | Two awesome text |
-    | Three   | Three good texts |
+    | title   | body             | tags         |
+    | One     | One awesome text | awesomesauce |
+    | Two     | Two awesome text |              |
+    | Three   | Three good texts | awesomesauce |
 
 Scenario: Adding a tag to an article
   Given I am logged in as "jimi@random.com"
@@ -25,3 +25,10 @@ Scenario: Adding a tag to an article
   And I click the "Publish article" button
   Then I am on the article page for article "Hotdogs"
   Then I should see "Tags: baseball, food, swedish"
+
+Scenario: Viewing all articles with the same tag
+  Given I am on the article page for article "One"
+  Then I should see "awesomesauce"
+  When I click the "awesomesauce" link
+  Then I should see "Three"
+  And I should not see "Two"

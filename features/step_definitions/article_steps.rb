@@ -3,7 +3,8 @@ Given(/^"([^"]*)" has written the following articles:$/) do |name, table|
     set_user(name)
     title = hash[:title]
     body = hash[:body]
-    FactoryGirl.create(:article, title: title, body: body, user: @user)
+    tags = hash[:tags]
+    FactoryGirl.create(:article, title: title, body: body, tag_list: tags, user: @user)
   end
 end
 
