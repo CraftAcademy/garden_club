@@ -32,6 +32,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec-rails'
