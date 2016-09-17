@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   private
   def full_address
-    @full_address = [g_street, g_street2, g_city, g_postcode, g_country].compact.join(', ')
+    [g_street, g_street2, g_city, g_postcode, g_country].compact.join(', ')
   end
 
 end

@@ -9,4 +9,4 @@ Scenario: Viewing a user's garden map
   When I am on the "profile" page for "Hanna"
   Then "Hanna" should have a latitude
   Then I should see "Gatan 2"
-  # And I should see "Map" --> Any tips on how to test this...? Did show-me-the-page, but nothing displayed (because I'm not stubbing an API call, right?)
+  And I should see a Google Map
