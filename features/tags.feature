@@ -23,4 +23,5 @@ Scenario: Adding a tag to an article
     | Body    | Warmkorv in Swedish     |
     | Tags    | food, baseball, swedish |
   And I click the "Publish article" button
-  Then I should see "Tags: ruby, testing, javascript"
+  Then I am on the article page for article "Hotdogs"
+  Then I should see "Tags: baseball, food, swedish"
