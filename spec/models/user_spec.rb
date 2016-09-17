@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
 
     it 'should be default false' do
       @user = FactoryGirl.build(:user, name: "Amber")
-      expect(@user.pro).to be(false)    
+      expect(@user.pro).to be(false)
     end
 
     it 'should be settable to true' do
@@ -76,5 +76,11 @@ RSpec.describe User, type: :model do
       expect(FactoryGirl.build(:user, email: "am ber@amber.com", email_confirmation: "am ber@amber.com")).not_to be_valid
     end
   end
+
+  # describe 'Geocode' do
+  #   it 'should geocode addresses' do
+  #     expect(FactoryGirl.build(:user, g_street: '4201 31st Street S', g_street2: 'Apt 747', g_postcode: '22206', g_city: 'Arlington', g_country: 'USA').latitude).to eq '2340237'
+  #   end
+  # end
 
 end
