@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
 
   def create
     if current_user
-      @user = User.find(params[:user_id])
-      @article = @user.articles.create(article_params)
+      # @user = User.find(params[:user_id])
+      @article = current_user.articles.create(article_params)
       redirect_to article_path(@article)
     else
       redirect_to new_user_session_path
@@ -30,10 +30,15 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-     params.require(:article).permit(:title, :body, :user_id, :tag_list)
+    clean_tag_list(clean_tag_list(params[:tag_list]))
+    params.require(:article).permit(:title, :body, :user_id, :tag_list)
   end
 
   def error_message
     "You are not logged in - you need to be logged in to see the page you were trying to reach"
+  end
+
+  def clean_tag_list(tag_list)
+
   end
 end

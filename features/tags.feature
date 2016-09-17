@@ -4,8 +4,8 @@ Feature: As a paid user
 
 Background:
   Given the following users exist:
-  | name   | email           |
-  | Jimi   | jimi@random.com |
+    | name   | email           |
+    | Jimi   | jimi@random.com |
 
   And "Jimi" has written the following articles:
     | title   | body             |
@@ -17,3 +17,10 @@ Scenario: Adding a tag to an article
   Given I am logged in as "jimi@random.com"
   And I am on the "compose" page for "Jimi"
   Then I should see "Tags"
+  When I fill in:
+    | element | content                 |
+    | Title   | Hotdogs                 |
+    | Body    | Warmkorv in Swedish     |
+    | Tags    | food, baseball, swedish |
+  And I click the "Publish article" button
+  Then I should see "Tags: ruby, testing, javascript"
