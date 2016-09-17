@@ -19,7 +19,7 @@
 
 <h1 class="content-head is-center">Current Articles</h1>
 <% if Article.all != [] %>
-  <% Article.all.each do |article| %>
+  <% Article.all.reverse.first(10).each do |article| %>
   <ul>
     <li><%= link_to article.title, article %></li>
   </ul>
