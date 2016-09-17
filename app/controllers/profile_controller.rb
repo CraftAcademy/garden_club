@@ -3,9 +3,6 @@ class ProfileController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @user_garden_website = url_with_protocol(@user.garden_website)
     @display_garden_website = url_no_protocol(@user.garden_website)
-    if @user.latitude.nil? && @user.g_city != nil
-      @user.geocode
-    end
     @map_hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
