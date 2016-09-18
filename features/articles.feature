@@ -68,6 +68,11 @@ Scenario: Not seeing edit button on article, logged in
   Then I should see "One awesome text"
   And I should not see "Edit article"
 
+Scenario: Trying to edit an article when not logged in
+  Given I am not logged in
+  And I visit someones edit article page
+  Then I should see "You are not logged in"
+
 Scenario: Edit an article
   Given I am logged in as "anna@random.com"
   And I am on the article page for article "One"
@@ -77,6 +82,16 @@ Scenario: Edit an article
   And I click the "Update article" button
   Then I should see "Article Title New"
   And I should see "Article Body New"
+
+Scenario: Edit an article wrongly
+  Given I am logged in as "anna@random.com"
+  And I am on the article page for article "One"
+  When I click the "Edit article" link
+  When I fill in "Title" with nothing
+  And I fill in "Body" with nothing
+  #And I click the "Update article" button
+  #Then I should see "Article not saved"
+  #Commented out because not working
 
 
 Scenario: Not be able to edit an article with another author

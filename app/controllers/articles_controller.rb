@@ -20,21 +20,25 @@ class ArticlesController < ApplicationController
       redirect_to article_path(@article)
     else
       redirect_to new_user_session_path
-      flash[:notice] = error_message
+      flash[:alert] = error_message
+    end
+  end
+
+  def edit
+    if current_user
+    else
+      redirect_to new_user_session_path
+      flash[:alert] = error_message
     end
   end
 
   def update
-    if current_user
-      @article = Article.find(params[:id])
-      if @article.update(article_params)
-        redirect_to @article
-      else
-        render 'edit'
-      end
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
     else
-      redirect_to new_user_session_path
-      flash[:notice] = error_message
+      render 'edit'
+      flash[:alert] = edit_error_message
     end
   end
 
@@ -49,5 +53,8 @@ class ArticlesController < ApplicationController
   end
   def error_message
     "You are not logged in - you need to be logged in to see the page you were trying to reach"
+  end
+  def edit_error_message
+    "Article not saved"
   end
 end
