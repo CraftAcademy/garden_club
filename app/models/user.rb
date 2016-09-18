@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :articles, dependent: :destroy
   include Stripe::Callbacks
+
+  has_many :articles, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -16,7 +17,13 @@ class User < ApplicationRecord
                     uniqueness: true,
                     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
-  
+  after_customer_updated! do |customer, event|
+     user = User.find_by_stripe_customer_id(customer.id)
+     if !customer.delinquent
+       user.pro = true
+       user.save!
+     end
+   end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
