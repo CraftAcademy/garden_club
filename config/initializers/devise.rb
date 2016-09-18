@@ -249,8 +249,15 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  if Rails.env.development? || Rails.env.test?
+    callback_url = "http://localhost:3000/users/auth/facebook/callback"
+  else
+    callback_url = "http://garden-club.herokuapp.com/users/auth/facebook/callback"
+  end
+
+
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'],
-                callback_url: "http://localhost:3000/users/auth/facebook/callback"
+                callback_url: callback_url
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
