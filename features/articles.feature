@@ -88,11 +88,8 @@ Scenario: Edit an article wrongly
   And I am on the article page for article "One"
   When I click the "Edit article" link
   When I fill in "Title" with nothing
-  And I fill in "Body" with nothing
-  #And I click the "Update article" button
-  #Then I should see "Article not saved"
-  #Commented out because not working
-
+  And I click the "Update article" button
+  Then I should see "Article not saved"
 
 Scenario: Not be able to edit an article with another author
   Given I am logged in as "anna@random.com"

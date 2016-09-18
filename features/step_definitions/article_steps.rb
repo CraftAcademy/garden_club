@@ -30,7 +30,7 @@ Given(/^I visit someones edit article page$/) do
 end
 
 When(/^I fill in "([^"]*)" with nothing$/) do |element|
-  fill_in element, with: ''
+  fill_in element, with: ""
 end
 
 

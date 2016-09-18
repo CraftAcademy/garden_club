@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
     if current_user
       @article = Article.new(user_id: current_user.id)
     else
-      redirect_to new_user_session_path
       flash[:notice] = error_message
+      redirect_to new_user_session_path
     end
   end
 
@@ -19,16 +19,16 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.create(article_params)
       redirect_to article_path(@article)
     else
-      redirect_to new_user_session_path
       flash[:alert] = error_message
+      redirect_to new_user_session_path
     end
   end
 
   def edit
     if current_user
     else
-      redirect_to new_user_session_path
       flash[:alert] = error_message
+      redirect_to new_user_session_path
     end
   end
 
@@ -37,8 +37,8 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      render 'edit'
       flash[:alert] = edit_error_message
+      render 'edit'
     end
   end
 
