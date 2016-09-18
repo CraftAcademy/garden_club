@@ -1,5 +1,7 @@
-<h1 class="content-head is-center">Publish article</h1>
-<%= form_for @article, url:{action: "create"}, html: { class: 'pure-form pure-form-aligned' } do |f| %>
+<% @article = Article.find_by_id(params[:id])%>
+
+<h1 class="content-head is-center">Update article</h1>
+<%= form_for @article, url:{action: "update"}, html: { class: 'pure-form pure-form-aligned' } do |f| %>
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -30,7 +32,7 @@
     <%= f.text_field :tag_list, placeholder: "Tags separated with comma" %>
   </div>
   <p>
-    <%= f.submit 'Publish article', class: 'hundra pure-button pure-button-primary'  %>
+    <%= f.submit 'Update article', class: 'hundra pure-button pure-button-primary'  %>
   </p>
 
 <% end %>

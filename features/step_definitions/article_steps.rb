@@ -14,7 +14,8 @@ Given(/^I am on the article page for article "([^"]*)"$/) do |title|
   expect(current_path).to eq article_path(article)
 end
 
-Given(/^I am on the "([^"]*)" for "([^"]*)"$/) do |page, user|
+Given(/^I am on the "([^"]*)" for "([^"]*)"$/) do |page, name|
+  set_user(name)
   visit user_articles_path(@user)
 end
 
@@ -22,6 +23,18 @@ Given(/^I visit someones compose page$/) do
   @user = FactoryGirl.create(:user)
   visit new_user_article_path(@user)
 end
+
+Given(/^I visit someones edit article page$/) do
+  article = FactoryGirl.create(:article)
+  visit edit_article_path(article)
+end
+
+When(/^I fill in "([^"]*)" with nothing$/) do |element|
+  fill_in element, with: ""
+end
+
+
+
 
 def set_user(name)
   @user = User.find_by(name: name)

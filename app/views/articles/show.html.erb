@@ -11,3 +11,7 @@
     <%= link_to tag, tag_path(tag) %><% unless tag == @last || @tags.nil? %>,<% end %>
   <% end %>
 </p>
+<% if current_user == @article.user%>
+  <%= link_to 'Edit article', edit_article_path %>
+<% else %>
+<% end %>
