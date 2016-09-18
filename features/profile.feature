@@ -60,3 +60,9 @@ Scenario: I can't edit someone else's profile
   Given I am not logged in
   When I try to visit the "Edit Profile" page
   Then I should see "You need to sign in or sign up before continuing."
+
+Scenario: Viewing my own profile when I'm brand new, formatting looks nice
+  Given I am logged in as "anna@random.com"
+  When I am on the "profile" page for "Anna"
+  Then I should not see "http://"
+  Then I should not see ",,"
