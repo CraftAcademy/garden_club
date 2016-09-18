@@ -18,6 +18,14 @@ class ChargesController < ApplicationController
       currency: 'sek'
     )
 
+    after_customer_updated! do |customer, event|
+     user = User.find_by_stripe_customer_id(customer.id)
+       if charge.succeeded
+         user.pro = true
+         user.save!
+       end
+     end
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
