@@ -7,21 +7,21 @@
 <% end %>
 <div>
   Name: <%= @user.name %><br>
-  <% unless @user.garden_website == "" %>
+  <% unless @user.garden_website == "" || @user.garden_website == nil || @user.garden_website == "http://" %>
     Garden Website: <%= link_to @display_garden_website, @user_garden_website %><br>
   <% end %>
-  <% unless @user.blurb == "" %>
+  <% unless @user.blurb == "" || @user.blurb == nil %>
     About Me: <%= @user.blurb %><br>
   <% end %>
-  <% unless @user.g_street == "" %>
+  <% unless @user.g_street == "" || @user.g_street == nil %>
     Garden Address:<br>
-    <% unless @user.g_street == "" %>
+    <% unless @user.g_street == "" || @user.g_street == nil %>
       <%= @user.g_street %><br>
     <% end %>
-    <% unless @user.g_street2 == "" %>
+    <% unless @user.g_street2 == "" || @user.g_street2 == nil %>
       <%= @user.g_street2 %><br>
     <% end %>
-    <% unless @user.g_postcode == "" %><%= @user.g_postcode %><% end %><% unless @user.g_city == "" %>, <%= @user.g_city %><% end %><% unless @user.g_country == "" %>, <%= @user.g_country %><% end %>
+    <% unless @user.g_postcode == "" || @user.g_postcode == nil %><%= @user.g_postcode %><% end %><% unless @user.g_city == "" || @user.g_city == nil %>, <%= @user.g_city %><% end %><% unless @user.g_country == "" || @user.g_country == nil %>, <%= @user.g_country %><% end %>
   <% end %>
 </div>
 <div>

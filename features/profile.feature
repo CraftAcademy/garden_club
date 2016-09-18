@@ -64,5 +64,7 @@ Scenario: I can't edit someone else's profile
 Scenario: Viewing my own profile when I'm brand new, formatting looks nice
   Given I am logged in as "anna@random.com"
   When I am on the "profile" page for "Anna"
-  Then I should not see "http://"
-  Then I should not see ",,"
+  Then I should not see "Garden Address"
+  And I should not see "Garden Website:"
+  And I should not see "http://"
+  And I should not see ", ,"
